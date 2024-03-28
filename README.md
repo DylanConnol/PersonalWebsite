@@ -23,4 +23,5 @@ buttonheader - the subsection of mainheader that encompasses all the buttons, bu
 socials - the subsection of mainheader thant encompasses the socials, but not the buttons, displayed on the top right of the screen
 
 subpage - the format used for all subpages (Contact and Projects)
+
 subpageTitle - the formatting for the title of the subpages that makes them look nice
