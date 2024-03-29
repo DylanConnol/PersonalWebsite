@@ -170,7 +170,11 @@ subpage {
 
 subpageTitle {
   color:rgb(0, 0, 0);
-  width: 20px;
+  width: auto;
+  font-size: 40px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .underline {
