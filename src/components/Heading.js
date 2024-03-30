@@ -3,34 +3,29 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate,
-  Redirect,
+  useNavigate,
   Link,
-  withRouter,
+  useLocation
 } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import Projects from "./Projects";
 import Home from "./Home";
 import Contact from "./Contact";
 import Custombutton from "./Custombutton";
+import {useRef} from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from 'react';
 
 function Heading(props) {
   const navigate = useNavigate();
 
-  const handleClick = (x) => {
-    navigate(x);
-    
-
-  };
-
-
-  return (
-    <div>
-      <mainheader>
+  const [currentMenu, setMenu] = useState("HOME");
+  function header() {
+    return(
+    <mainheader>
         <buttonheader>
-          <Custombutton page = "HOME" link = "/"></Custombutton>
-          <Custombutton page = "PROJECTS" link = "/projects"></Custombutton>
-          <Custombutton page = "CONTACT" link = "/contact"></Custombutton>
+          <Custombutton page = "HOME" setMenu = {setMenu} currentMenu = {currentMenu}></Custombutton>
+          <Custombutton page = "PROJECTS" setMenu = {setMenu} currentMenu = {currentMenu}></Custombutton>
+          <Custombutton page = "CONTACT" setMenu = {setMenu} currentMenu = {currentMenu}></Custombutton>
         </buttonheader>
         <socials>
           <Link to="https://github.com/DylanConnol">
@@ -40,14 +35,20 @@ function Heading(props) {
             <img src="linkedin.png" className="imageLink" width = {20} height = {20} />
           </Link>
         </socials>
-      </mainheader>
-      <Routes>
-        <Route exact path="/projects" element={<Projects />}></Route>
-        <Route exact path="/" element={<Home />}></Route>
-        <Route exact path="/contact" element={<Contact />}></Route>
+      </mainheader>)
+  }
 
-        <Route></Route>
-      </Routes>
+
+  return (
+    <div>
+    {header()}
+      <AnimatePresence mode='wait'>
+      {currentMenu === "PROJECTS" && <Projects key = "test1" exitdirection = {-1}/>}
+      {currentMenu === "CONTACT" && <Contact key = "test2" exitdirection = {-1}/>}
+      {currentMenu === "HOME" && <Home key = "test3" exitdirection = {-1}/>}
+
+
+      </AnimatePresence>
     </div>
   );
 }
