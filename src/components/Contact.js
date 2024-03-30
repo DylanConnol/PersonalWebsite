@@ -1,5 +1,8 @@
+import AnimatedPage from "./AnimatedPage";
+
 function Contact () {
     return (
+        <AnimatedPage exitdirection = {props.exitdirection}>
         <div>
             <subpage>
             <title>Contact Information</title>
@@ -21,6 +24,7 @@ function Contact () {
 
             </subpage>
         </div>
+        </AnimatedPage>
 
     )
 }
