@@ -1,10 +1,15 @@
+import AnimatedPage from "./AnimatedPage";
+
 function Projects () {
+    
     return (
+        <AnimatedPage exitdirection = {props.exitdirection}>
         <div>
             <subpage>
-            <subpageTitle>Current Projects:</subpageTitle>
+            <title>Current Projects:</title>
             </subpage>
         </div>
+    </AnimatedPage>
 
     )
 }
