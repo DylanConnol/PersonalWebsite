@@ -1,5 +1,10 @@
+import AnimatedPage from "./AnimatedPage";
+
+
 function Home() {
   return (
+    <AnimatedPage exitdirection = {props.exitdirection}>
+
     <>
       <center>
         <h1 align="center">Dylan Connolly</h1>
@@ -13,6 +18,7 @@ function Home() {
         </h2>
       </center>
     </>
+            </AnimatedPage>
   );
 }
 
