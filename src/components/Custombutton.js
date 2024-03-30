@@ -8,11 +8,11 @@ function Custombutton(props) {
 
 
   function handleClick() {
-    navigate(props.link);
+    props.setMenu(props.page);
   }
 
-  if (location.pathname == props.link) {
-        return  <button onClick={handleClick} style = {{"text-decoration":"underline" }}>{props.page}</button>
+  if (props.page === props.currentMenu) {
+        return  <button onClick={handleClick} style = {{"text-decoration":"underline", textUnderlineOffset: "15px" }}>{props.page}</button> //add text-underline-offset
   }
   return  <button onClick={handleClick}>{props.page}</button>
 
